@@ -1,0 +1,601 @@
+/*
+Theme Name:   My Hero
+Theme URI:    http://yourwebsite.com/
+Author:       Your name
+Author URI:   http://yourwebsite.com
+Contributors: otherPersonsName
+Description:  Theme named after my wonderful sister. Demo at http://yourwebsite/demo.com
+Version:      1.0.0
+Requires PHP: 7.4
+Tested up to: 2.3
+Requires CP:  1.4
+Text Domain:  hello-theme
+Tags:         editor-style, featured-images, post-formats, sticky-post, threaded-comments, translation-ready, full-width-template, theme-options
+
+License: GNU General Public License v3.0
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
+Themename ClassicPress Theme, Copyright 2014 TSW
+Themename is distributed under the terms of the GNU GPL
+*/
+
+
+/* ===========================
+    CSS Index         
+==============================
+ *
+ * 1.0 - Body/Page 
+ * 2.0 - Universal
+ * 3.0 Navigation
+*/
+
+/* ==========================================================================
+   Body / Page
+   ========================================================================== */
+
+*
+{
+  margin: 0;
+  padding: 4px;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+/**
+ * ************************************************** 2.0 - Universal
+ */
+ 
+/*
+ Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  line-height: 1.485;
+  font-weight:lighter;
+}
+img {
+	border-style: none; /* @source normalize.css */
+	height: auto;
+	max-width: 100%;
+	/* Adhere to container width. 
+	vertical-align: middle; */
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+/* must have higher specificity than alternative color schemes inline styles */
+.skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #21759b;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+}
+
+.logged-in .skip-link {
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+	font-family: "Open Sans", sans-serif;
+}
+
+.skip-link:focus {
+	clip: auto;
+	height: auto;
+	left: 6px;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+hr{
+  height: 0;
+  border: 1px solid #aaa;
+  width: 100%;
+  display: block;
+}
+hr:before,
+hr:after{
+  content: " ";
+  display: table;
+  width: 100%;
+  clear:both;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre code,
+pre {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+pre code, 
+code{
+  font-family: monaco, "Consolas", "Lucida Console", monospace;
+  background: #efefef
+}
+table {
+  background-color: transparent;
+}
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+}
+
+th {
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+table>thead>tr>th,
+table>tbody>tr>th,
+table>tfoot>tr>th,
+table>thead>tr>td,
+table>tbody>tr>td,
+table>tfoot>tr>td {
+  padding: 4px;
+  line-height: 1.28;
+  vertical-align: middle;
+  border-top: 1px solid #ddd;
+}
+input[type="submit"]{
+  background: #eee;
+	box-sizing: inherit;
+  color: #464646;
+  padding: 6px 8px;
+  width: fit-content;
+  height: min-content;
+  white-space: normal;
+  text-align:center;
+  margin: 0 0 0 auto;
+  border-radius: 3px;
+  font-size: .938em;
+  background: rgba(242, 242, 242, .86);
+  box-shadow: 0 1px 2px 1px #777;
+  border: 0;
+}
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="text"]{
+  padding: 4px;
+  line-height: 1.28;
+  vertical-align: middle;
+  
+}
+
+label + input,
+label + textarea,
+label + select {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #818181;
+}
+
+label {
+	display: flex;
+	margin-bottom: 8px;
+}
+blockquote {
+  border: 4px dotted #ccc;
+  padding-left: .825em;
+  padding-right: .825em;
+  border-radius: 0 18px;
+}
+cite{
+  width: 100%;
+  display: block;
+  opacity: .64
+}
+cite:before{
+  content: "__";
+  position: relative;
+  top: -.4em;
+  display: inline-flex;
+  margin-right: .25em;
+}
+ol, 
+ul{
+  margin: 0;
+}
+ol li, 
+ul li{
+  margin-left: 1em;
+  margin-right: 1em;
+  line-height: 1.5 
+}
+
+/* Alignments */
+.bypostauthor {
+  color: inherit;
+}
+
+.alignleft {
+  display: inline;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+.textcenter {
+  clear: left;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.comment-list .comment{
+  margin-top: 1em;
+}
+/* 4.3 - Widgets */
+.widget_tag_cloud,
+.widget_archive,
+.widget_categories{
+  max-height: 21.475em;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  border-bottom: thin solid #ddd;
+}
+/* Gallery
+ ---------------------------------------- */
+
+ .gallery {
+  margin: auto;
+  /* gallery clearing*/
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery .gallery-item {
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gallery.gallery-columns-1 .gallery-item {
+  width: 100%;
+}
+
+.gallery.gallery-columns-2 .gallery-item {
+  width: 50%;
+}
+
+.gallery.gallery-columns-3 figure {
+  width: 33.33%;
+}
+
+.gallery.gallery-columns-4 .gallery-item {
+  width: 25%;
+}
+
+.gallery.gallery-columns-5 figure {
+  width: 20%;
+}
+
+.gallery.gallery-columns-6 figure {
+  width: 16.66%;
+}
+
+.gallery.gallery-columns-7 figure {
+  width: 14.285%;
+}
+
+.gallery.gallery-columns-8 figure {
+  width: 12.5%;
+}
+
+.gallery.gallery-columns-9 figure {
+  width: 11.111%;
+}
+
+.gallery img {
+  box-shadow: 0px 0px 4px #999;
+  border: 1px solid white;
+  padding: 5px;
+  background: #f9f9f9;
+}
+
+.gallery img:hover {
+  background: white;
+}
+
+.gallery .gallery-caption {
+  margin-left: 0;
+}
+
+.gallery dl,
+.gallery dt {
+  margin: 0;
+}
+
+.gallery br+br {
+  display: none;
+}
+
+.gallery br {
+  clear: both
+}
+
+/* ==========================================================================
+   Top Navigation
+   ========================================================================== */
+
+.page-nav-wrapper {
+  position: sticky;       /* Tells the element to stick when it reaches its threshold */
+  top: 0;                 /* Tells it to stick at the very top of the viewport */
+  z-index: 1000;   
+  width: 100%;
+  padding: 8px 0;
+  height: 100%;
+    background-color: #fafafa;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Pushes logo left, nav-links right */
+  align-items: center;            /* Vertically centers all elements */
+
+  padding: 16px 20px;
+}
+
+.nav-wrapper ul {
+	display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.nav-wrapper ul li
+{
+  list-style: none;
+  padding: 4px;
+  position: relative;
+  transition: 0.5s;
+  display: block;
+}
+
+.nav-wrapper ul li ul
+{
+  display: none;
+}
+
+.nav-wrapper ul li:hover ul
+{
+  display: block;
+  position: absolute;
+  margin-top: 5px;
+  width: 100%;
+  padding: 10px 2px;
+  box-shadow: 0px 20px 100px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* ==========================================================================
+   Hero ATF Section
+   ========================================================================== */
+
+.hero-atf {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 2rem;
+	background-color: #f4f6f8;
+	box-sizing: border-box;
+}
+
+.hero-content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.hero-title {
+	font-size: 3rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	color: #1a1a1a;
+}
+
+.hero-subtitle {
+	font-size: 1.25rem;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	color: #4a5568;
+}
+
+/* CTA Grouping & Buttons */
+.hero-cta-group {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.8rem 1.75rem;
+	font-weight: 600;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+	transform: translateY(-1px);
+}
+
+.btn-primary {
+	background-color: #0066cc;
+	color: #ffffff;
+}
+
+.btn-primary:hover {
+	background-color: #0052a3;
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: #0066cc;
+	border: 2px solid #0066cc;
+}
+
+.btn-secondary:hover {
+	background-color: #0066cc;
+	color: #ffffff;
+}
+
+/* Lower Section Container */
+.front-page {
+	padding: 4rem 2rem;
+}
+
+.front-page main {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+/* Position relative to support absolute overlays/videos */
+.hero-atf {
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Media Overlays & Layering */
+.hero-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4); /* Darkens media so white text is readable */
+	z-index: 1;
+	display: none;
+}
+
+.has-media-image .hero-overlay,
+.has-media-video .hero-overlay {
+	display: block;
+}
+
+.has-media-image .hero-title,
+.has-media-image .hero-subtitle,
+.has-media-video .hero-title,
+.has-media-video .hero-subtitle {
+	color: #ffffff;
+}
+
+.hero-content {
+	position: relative;
+	z-index: 2; /* Keeps text above background media and overlay */
+}
+
+/* Background Video Styling */
+.hero-video-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.hero-video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* ==========================================================================
+   Page sections
+   ========================================================================== */
+
+.front-page-body,
+.page-page-body,
+.index-page-body {
+	width: 85.222%;
+	margin: 1em auto;
+}   
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+/* Back to Top button */
+
+.back_to_top {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 2;
+  cursor: pointer;
+  position: relative;
+}
+
+.back_to_top:hover {
+  background: #e9ebec;
+  color: black;
+}
+
+.back_to_top-show {
+  display: block;
+}
