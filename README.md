@@ -1,4 +1,4 @@
-![MyHero banner](images/banner-1544x500.png)
+![MyHero banner](images/myhero-banner-1544x500.png)
 
 # MyHero
 ClassicPress theme with full Above the Fold hero. Uses image or video as hero.
