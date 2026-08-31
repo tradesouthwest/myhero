@@ -76,6 +76,20 @@ function myhero_start_theme_setup() {
        'unlink-homepage-logo' => true,
     ));
 
+	$myhero_bkgrnd_defaults = array(
+		'default-color'          => '',
+		'default-image'          => '',
+		'default-repeat'         => 'repeat',
+		'default-position-x'     => 'left',
+			'default-position-y'     => 'top',
+			'default-size'           => 'auto',
+		'default-attachment'     => 'scroll',
+		'wp-head-callback'       => '_custom_background_cb',
+		'admin-head-callback'    => '',
+		'admin-preview-callback' => ''
+	);
+	add_theme_support( 'custom-background', $myhero_bkgrnd_defaults );
+
     /**
 	* Make theme available for translation.
 	* Translations can be added to the /languages/ directory.

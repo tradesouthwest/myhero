@@ -25,7 +25,8 @@ Themename is distributed under the terms of the GNU GPL
  *
  * 1.0 - Body/Page 
  * 2.0 - Universal
- * 3.0 Navigation
+ * 3.0 - Navigation
+ * 4.0 - Hero ATF Section
 */
 
 /* ==========================================================================
@@ -436,7 +437,7 @@ ul li{
 
 
 /* ==========================================================================
-   Hero ATF Section
+   Hero ATF Section 4.0
    ========================================================================== */
 
 .hero-atf {
@@ -493,6 +494,7 @@ ul li{
 .btn-primary {
 	background-color: #0066cc;
 	color: #ffffff;
+  border: 2px solid #efeaaa;
 }
 
 .btn-primary:hover {
@@ -500,9 +502,9 @@ ul li{
 }
 
 .btn-secondary {
-	background-color: transparent;
+	background-color: #efeaaa;
 	color: #0066cc;
-	border: 2px solid #0066cc;
+	border: 2px solid #ffffff;
 }
 
 .btn-secondary:hover {
@@ -555,7 +557,7 @@ ul li{
 	background-repeat: no-repeat;
 }
 
-/* Media Overlays & Layering */
+/* Media Overlays & Layering Removed @since 1.0.0 */
 .hero-overlay {
 	position: absolute;
 	top: 0;

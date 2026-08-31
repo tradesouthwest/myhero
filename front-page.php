@@ -15,30 +15,20 @@ get_header();
 	if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
 		$hero_style = 'style="background-image: url(' . esc_url( $hero['bg_image'] ) . ');"';
 	}
-	$hero_allowed_html = array(
-		'section' => array(
-			'class' => array(),
-			'style' => array(),
-		),
-	);
 	?>
 
 <main id="primary" class="site-main">
 
-	<?php 
-		echo wp_kses( 
-	'<section class="hero-atf has-media-' . esc_attr( $hero['bg_type'] ) . '" ' . $hero_style . '>', $$hero_allowed_html ); ?>
+	<section class="hero-atf <?php echo esc_attr( 'has-media-' 
+		. $hero['bg_type'] ); ?>" <?php echo wp_strip_all_tags( $hero_style ); ?>>
 	    
-		<?php 
-		if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
+		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
 			<div class="hero-video-wrapper">
 				<video autoPlay loop muted playsInline class="hero-video">
 					<source src="<?php echo esc_url( $hero['bg_video'] ); ?>" type="video/mp4">
 				</video>
 			</div>
 		<?php endif; ?>
-
-		<div class="hero-overlay"></div>
 
 		<div class="hero-content">
 			<?php if ( ! empty( $hero['title'] ) ) : ?>
