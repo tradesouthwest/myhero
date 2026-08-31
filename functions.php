@@ -199,7 +199,7 @@ function myhero_breadcrumbs() {
 		$category = get_the_category();
 		if ( ! empty( $category ) ) {
 			$last_category = end( esc_html( $category ) );
-			echo get_category_parents( $last_category->term_id, true, esc_attr( $delimiter ) );
+			echo wp_kses_post( get_category_parents( $last_category->term_id, true, esc_html( $delimiter ) ) );
 		}
 		echo esc_html( $before ) . get_the_title() . esc_html( $after );
 	} elseif ( is_page() && ! is_front_page() ) {
@@ -210,13 +210,13 @@ function myhero_breadcrumbs() {
 				echo '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>' . esc_html( $delimiter );
 			}
 		}
-		echo esc_html( $before ) . get_the_title() . esc_html( $after );
+		echo esc_html( $before ) . esc_html( get_the_title() ) . esc_html( $after );
 	} elseif ( is_archive() ) {
-		echo esc_html( $before ) . get_the_archive_title() . esc_html( $after );
+		echo esc_html( $before ) . esc_html( get_the_archive_title() ) . esc_html( $after );
 	} elseif ( is_search() ) {
-		echo esc_html( $before ) . sprintf( esc_html_( 'Search Results for: %s', 'myhero' ), get_search_query() ) . esc_html( $after );
+		echo esc_html( $before ) . sprintf( esc_html__( 'Search Results for: %s', 'myhero' ), get_search_query() ) . esc_html( $after );
 	} elseif ( is_404() ) {
-		echo esc_html( $before ) . esc_html_( 'Page Not Found', 'myhero' ) . esc_html( $after );
+		echo esc_html( $before ) . esc_html__( 'Page Not Found', 'myhero' ) . esc_html( $after );
 	}
 
 	echo '</nav>';
@@ -235,14 +235,13 @@ function myhero_breadcrumbs() {
  * @return array
  */
 function myhero_get_hero_mods() {
-	$text_domain = 'myhero'; // Updated text domain from hello-theme
 
 	return array(
 		'title'          => get_theme_mod( 'hero_title', get_bloginfo( 'name' ) ),
 		'subtitle'       => get_theme_mod( 'hero_subtitle', get_bloginfo( 'description' ) ),
-		'btn_prim_text'  => get_theme_mod( 'hero_btn_primary_text', __( 'Get Started', $text_domain ) ),
+		'btn_prim_text'  => get_theme_mod( 'hero_btn_primary_text', esc_html__( 'Get Started', 'myhero' ) ),
 		'btn_prim_url'   => get_theme_mod( 'hero_btn_primary_url', '#primary-cta' ),
-		'btn_sec_text'   => get_theme_mod( 'hero_btn_secondary_text', __( 'Learn More', $text_domain ) ),
+		'btn_sec_text'   => get_theme_mod( 'hero_btn_secondary_text', esc_html__( 'Learn More', 'myhero' ) ),
 		'btn_sec_url'    => get_theme_mod( 'hero_btn_secondary_url', '#secondary-cta' ),
 		'bg_type'        => get_theme_mod( 'hero_bg_type', 'none' ),
 		'bg_image'       => get_theme_mod( 'hero_bg_image', '' ),
