@@ -201,7 +201,7 @@ function myhero_breadcrumbs() {
 			$last_category = end( esc_html( $category ) );
 			echo wp_kses_post( get_category_parents( $last_category->term_id, true, esc_html( $delimiter ) ) );
 		}
-		echo esc_html( $before ) . get_the_title() . esc_html( $after );
+		echo esc_html( $before ) . esc_html( get_the_title() ) . esc_html( $after );
 	} elseif ( is_page() && ! is_front_page() ) {
 		global $post;
 		if ( $post->post_parent ) {
