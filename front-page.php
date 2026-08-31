@@ -20,7 +20,8 @@ get_header();
 <main id="primary" class="site-main">
 
 	<section class="hero-atf <?php echo esc_attr( 'has-media-' 
-		. $hero['bg_type'] ); ?>" <?php echo wp_strip_all_tags( $hero_style ); ?>>
+		. $hero['bg_type'] ); ?>" <?php echo $hero_style; // WordPress.Security.EscapeOutput.OutputNotEscaped 
+		?>>
 	    
 		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
 			<div class="hero-video-wrapper">
