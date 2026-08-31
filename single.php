@@ -6,84 +6,100 @@
  */
 
 get_header();
-// Fetch all hero options at once
-	$hero = myhero_get_hero_mods();
-	
-	// Inline style check
-$hero_style = '';
-if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
-	$hero_style = 'style="background-image: url(' . esc_url( $hero['bg_image'] ) . ');"';
-}
+
+$hban = get_theme_mod( 'myhero_hero_banner', ''); 
 ?>
 
 <main id="primary" class="site-main">
 
-	<section class="hero-atf <?php echo esc_attr( 'has-media-' . $hero['bg_type'] ); ?>" <?php echo $hero_style; ?>>
-
-		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
-			<div class="hero-video-wrapper">
-				<video autoPlay loop muted playsInline class="hero-video">
-					<source src="<?php echo esc_url( $hero['bg_video'] ); ?>" type="video/mp4">
-				</video>
-			</div>
-		<?php endif; ?>
-
-		<div class="hero-overlay"></div>
-
-		<div class="hero-content">
-			<?php if ( ! empty( $hero['title'] ) ) : ?>
-				<h1 class="hero-title"><?php echo esc_html( $hero['title'] ); ?></h1>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $hero['subtitle'] ) ) : ?>
-				<p class="hero-subtitle"><?php echo esc_html( $hero['subtitle'] ); ?></p>
-			<?php endif; ?>
-			
-			<div class="hero-cta-group">
-				<?php if ( ! empty( $hero['btn_prim_text'] ) && ! empty( $hero['btn_prim_url'] ) ) : ?>
-					<a href="<?php echo esc_url( $hero['btn_prim_url'] ); ?>" class="btn btn-primary">
-						<?php echo esc_html( $hero['btn_prim_text'] ); ?>
-					</a>
-				<?php endif; ?>
-
-				<?php if ( ! empty( $hero['btn_sec_text'] ) && ! empty( $hero['btn_sec_url'] ) ) : ?>
-					<a href="<?php echo esc_url( $hero['btn_sec_url'] ); ?>" class="btn btn-secondary">
-						<?php echo esc_html( $hero['btn_sec_text'] ); ?>
-					</a>
-				<?php endif; ?>
-			</div>
+	<!-- Above The Fold (ATF) Hero banner -->
+	<div class="hero-banner">
+		<div class="myhero-banner" style="background: url( <?php echo esc_url( $hban ); ?> ); background-position: center;">
+				<div class="banner-title">
+					<?php the_title( '<span class="post-title-banner">', '</span>' ); ?>	
+				</div>
 		</div>
-	</section>
-
+	</div>
+	<div class="breadcrumbs">
+	<?php
+	if ( function_exists( 'myhero_breadcrumbs' ) ) {
+		myhero_breadcrumbs();
+	} 
+	?>
+</div>
+<div class="myhero-with-sidebar">
 	<!-- Lower Half (Open for content/widgets) -->
 	<section class="index-page-body">
-		<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+			<?php 
+			while ( have_posts() ) :
+				the_post(); ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope 
                 itemtype="https://schema.org/Article">
 
             <div class="post-content">
-				<header class="excerpt-header">
-                    
-                    <?php the_title(
-                        sprintf( '<h2 class="post-title h4"><a href="%s" rel="bookmark">', 
-                            esc_attr( esc_url( get_permalink() ) ) 
-                            ), '</a></h2>' ); ?>
+				<header class="single-header">
+				
+					<h2 class="post-title"><?php the_title(); ?></h2>
 
-                    </header>
-					<span class="excerpt-ghost">
+                </header>
+				<figure class="linked-attachment-container">
+				<a class="imgwrap-link"
+				href ="<?php echo esc_url( get_attachment_link( get_post_thumbnail_id() ) ); ?>" 
+				title="<?php the_title_attribute( 'before=Permalink to: &after=' ); ?>">
+				<?php 
+				the_post_thumbnail( 'medium_large', array( 
+						'itemprop' => 'image', 
+						'class'  => 'april-featured',
+						'alt'  => get_attachment_link( get_post_thumbnail_id() )
+					) 
+				); ?></a>
+				</figure>
+
+					<div class="content-single">
                             
-                                <?php the_content(); ?>
+                        <?php the_content(); ?>
                         
-                            </span>
-</div>
-</article>
-<?php 
-        endwhile; ?>
-		<?php endif; ?>
+					</div>
+					
+					<?php
+					endwhile; ?>
+			</div>
+				
 
+				<div class="after-content">
+					<p class="after-cats"><span><small><?php esc_html_e('By: ', 'myhero'); ?></span> 
+						<em><?php the_author(); ?></em></small>
+					| <span><small><?php esc_html_e('Categorized as: ', 'myhero'); ?></span> 
+						<em><?php the_category( ' &bull; ' ); ?></em></small>
+					| <span><small><?php esc_html_e('Keys: ', 'myhero'); ?></span> 
+						<em><?php the_tags( ' ' ); ?></em></small>
+					| <span><small><?php esc_html_e('Added on: ', 'myhero'); ?></span> 
+						<em><?php the_date(); ?></em></small></p>
+				</div>
+
+					<div class="myhero-comments">
+						<?php 
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						} ?>
+					</div>
+
+						<div class="prev-next-links">
+							<p><?php previous_post_link(); ?><span class="next-links-divider"> | </span><?php next_post_link(); ?></p>
+						</div>
+		</article>
+		
 	</section>
 
+		<aside class="blog-sidebar">
+		
+			<?php get_sidebar(); ?>
+	
+		</aside>
+
+</div>
 </main>
 
 <?php

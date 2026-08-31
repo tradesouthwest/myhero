@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Front Page
+ * Front page
  *
  * @package Hello_Theme
  */
@@ -20,7 +20,7 @@ if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
 <main id="primary" class="site-main">
 
 	<section class="hero-atf <?php echo esc_attr( 'has-media-' . $hero['bg_type'] ); ?>" <?php echo $hero_style; ?>>
-
+	    
 		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
 			<div class="hero-video-wrapper">
 				<video autoPlay loop muted playsInline class="hero-video">

@@ -35,7 +35,6 @@ Themename is distributed under the terms of the GNU GPL
 *
 {
   margin: 0;
-  padding: 4px;
   box-sizing: border-box;
 
 }
@@ -59,10 +58,15 @@ a:focus {
 /*
  Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
-  line-height: 1.485;
-  font-weight:lighter;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+p, dl {
+  font: 16px/1.68 sans-serif; /* Font size 16px and line-height 1.5 */
+  margin-bottom: 1em;
 }
 img {
 	border-style: none; /* @source normalize.css */
@@ -413,16 +417,20 @@ ul li{
 .nav-wrapper ul li ul
 {
   display: none;
+  background: rgba( 250, 250, 250, .9);
+  
 }
 
 .nav-wrapper ul li:hover ul
 {
   display: block;
   position: absolute;
-  margin-top: 5px;
-  width: 100%;
-  padding: 10px 2px;
+  margin-top: 0;
+  padding: 8px 2px;
   box-shadow: 0px 20px 100px 0px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  word-wrap: normal;
+  white-space: normal;
 }
 
 
@@ -432,7 +440,7 @@ ul li{
    ========================================================================== */
 
 .hero-atf {
-	min-height: 100vh;
+	min-height: 87vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -502,6 +510,33 @@ ul li{
 	color: #ffffff;
 }
 
+.banner-title {
+  display: flex;
+	margin: auto;
+	justify-content: center;
+	text-align: center;
+  background-color: rgba(222,222,222, .5);
+  height: fit-content;
+  font-size: 2em;
+}
+
+.myhero-banner {
+  display: flex;
+  height: inherit;
+  width: 100%
+}
+
+.hero-banner {
+  height: 20vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: #f4f6f8;
+  width: 89%;
+  margin: 0 auto;
+
+}
 /* Lower Section Container */
 .front-page {
 	padding: 4rem 2rem;
@@ -569,31 +604,161 @@ ul li{
    Page sections
    ========================================================================== */
 
+   /* Breadcrumb Navigation */
+.breadcrumbs {
+	padding: 0.75rem 0;
+	font-size: 0.9rem;
+	color: #6c757d;
+  width: 82.5%;
+  position: relative;
+  left: 4%;
+  top: -.67rem;
+}
+
+.breadcrumbs a {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumbs .breadcrumb-current {
+	color: #333333;
+	font-weight: 600;
+}
+
 .front-page-body,
 .page-page-body,
 .index-page-body {
 	width: 85.222%;
 	margin: 1em auto;
+  padding: 10px 20px;
 }   
+.post-content {
+  display: inherit;
+  border-bottom: thin solid #ccc;
+}
 
+.myhero-with-sidebar {
+  display: grid;
+  margin-top: -30px;
+}
+.single .blog-sidebar,
+  .blog .blog-sidebar {
+    padding-top: 20px;
+    overflow: hidden;
+    width: 82.5%;
+  }
+
+@media screen and (min-width: 801px){
+  .myhero-with-sidebar {
+    display: grid;
+      grid-template-columns: 1fr .5fr;
+      grid-gap: 0;
+
+  }
+  .single .post {
+    padding: 10px 13px;
+  }
+
+  .single .blog-sidebar,
+  .blog .blog-sidebar  {
+    margin-top: 1.64em;
+  }
+}
+
+.archive .post {
+  margin-left: 20px;
+}
+.blog-sidebar ul {
+  list-style: none;
+  margin-left: -2em;
+}
+
+.ltr .blog-sidebar ul {
+  list-style: none;
+  margin-right: -2em;
+}
+
+.search-form {
+display: inline-block;
+  width: 64%;
+}
+
+.search-form input.search-submit {
+  position: relative;
+  top: -2.4rem;
+  padding: 6px 9px;
+}
+
+.prev-next-links {
+  margin-top: 30px;
+  box-shadow: 
+    0 -10px 10px -10px rgba(0, 0, 0, 0.25), /* Top shadow */
+    0  10px 10px -10px rgba(0, 0, 0, 0.25); /* Bottom shadow */
+  padding-left: 10px;
+}
+.next-links-divider {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.linked-attachment-container {
+  margin-bottom: 30px;
+}
+
+.myhero-logo-container {
+  display: flex;
+  position: absolute;
+  left: 75%;
+  top: 3px;
+}
 /* ==========================================================================
    Footer
    ========================================================================== */
 
+.page-footer {
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: row;
+padding-left: 1em;
+}
+.rtl .page-footer{
+padding-right: 1em;
+}
+.footer-base {
+  display: flex;
+  flex-direction: row;
+}
+.site-copyright {
+  background: transparent;
+}
+
+.upto {
+  margin: 0 3rem;
+}
 /* Back to Top button */
 
 .back_to_top {
+  display: block;
   width: 30px;
   height: 30px;
   text-align: center;
-  line-height: 2;
+  line-height: 2.575;
   cursor: pointer;
   position: relative;
+  text-decoration: none;
+  border: thin solid #ccc;
+  border-radius: 50%;
 }
 
 .back_to_top:hover {
   background: #e9ebec;
   color: black;
+  text-decoration: none;
 }
 
 .back_to_top-show {

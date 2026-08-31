@@ -45,4 +45,16 @@
             ); ?>
                 
             </div>
+                <div class="myhero-nav-logo">
+                    <div class="myhero-logo-container site-logo">
+                        <a href="<?php 
+			                echo esc_url( home_url( '/' ) ); ?>" 
+                            rel="bookmark"><?php 
+		        if ( function_exists( 'myhero_theme_custom_logo' ) ) {
+				    echo wp_kses_post( force_balance_tags( myhero_theme_custom_logo() ) ); } ?>
+			            </a>
+                    </div>
+                </div>
+
+
         </nav> 

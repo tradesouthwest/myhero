@@ -1,61 +1,36 @@
 <?php
 /**
- * Index template
+ * Index template Mostly used for blog page.
  *
- * @package Hello_Theme
+ * @package MyHero
  */
 
 get_header();
 
-// Fetch all hero options at once
-	$hero = myhero_get_hero_mods();
-	
-	// Inline style check
-$hero_style = '';
-if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
-	$hero_style = 'style="background-image: url(' . esc_url( $hero['bg_image'] ) . ');"';
-}
+
+$hban = get_theme_mod( 'myhero_hero_banner', ''); 
+
 ?>
 
 <main id="primary" class="site-main">
 
-	<section class="hero-atf <?php echo esc_attr( 'has-media-' . $hero['bg_type'] ); ?>" <?php echo $hero_style; ?>>
-
-		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
-			<div class="hero-video-wrapper">
-				<video autoPlay loop muted playsInline class="hero-video">
-					<source src="<?php echo esc_url( $hero['bg_video'] ); ?>" type="video/mp4">
-				</video>
-			</div>
-		<?php endif; ?>
-
-		<div class="hero-overlay"></div>
-
-		<div class="hero-content">
-			<?php if ( ! empty( $hero['title'] ) ) : ?>
-				<h1 class="hero-title"><?php echo esc_html( $hero['title'] ); ?></h1>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $hero['subtitle'] ) ) : ?>
-				<p class="hero-subtitle"><?php echo esc_html( $hero['subtitle'] ); ?></p>
-			<?php endif; ?>
-			
-			<div class="hero-cta-group">
-				<?php if ( ! empty( $hero['btn_prim_text'] ) && ! empty( $hero['btn_prim_url'] ) ) : ?>
-					<a href="<?php echo esc_url( $hero['btn_prim_url'] ); ?>" class="btn btn-primary">
-						<?php echo esc_html( $hero['btn_prim_text'] ); ?>
-					</a>
-				<?php endif; ?>
-
-				<?php if ( ! empty( $hero['btn_sec_text'] ) && ! empty( $hero['btn_sec_url'] ) ) : ?>
-					<a href="<?php echo esc_url( $hero['btn_sec_url'] ); ?>" class="btn btn-secondary">
-						<?php echo esc_html( $hero['btn_sec_text'] ); ?>
-					</a>
-				<?php endif; ?>
-			</div>
+	<!-- Above The Fold (ATF) Hero banner -->
+	<div class="hero-banner">
+		<div class="myhero-banner" style="background: url( <?php echo esc_url( $hban ); ?> ); background-position: center;">
+				<div class="banner-title">
+					<span class="post-title-banner"><?php echo wp_title(''); ?></span>	
+				</div>
 		</div>
-	</section>
+	</div>
+	<div class="breadcrumbs">
+	<?php
+	if ( function_exists( 'myhero_breadcrumbs' ) ) {
+		myhero_breadcrumbs();
+	} 
+	?>
+</div>
 
+<div class="myhero-with-sidebar">
 	<!-- Lower Half (Open for content/widgets) -->
 	<section class="index-page-body">
 		<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
@@ -71,20 +46,26 @@ if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
                             esc_attr( esc_url( get_permalink() ) ) 
                             ), '</a></h2>' ); ?>
 
-                    </header>
+                </header>
 					<span class="excerpt-ghost">
                             
-                                <?php the_excerpt(); ?>
+                        <?php the_excerpt(); ?>
                         
-                            </span>
-</div>
-</article>
-<?php 
+                    </span>
+			</div>
+		</article>
+
+		<?php 
         endwhile; ?>
-		<?php endif; ?>
+			<?php 
+			endif; ?>
 
 	</section>
-
+	<aside class="blog-sidebar">
+		
+	<?php get_sidebar(); ?>
+	</aside>
+		</div>
 </main>
 
 <?php

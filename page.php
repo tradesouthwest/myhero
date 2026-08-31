@@ -6,22 +6,21 @@
  */
 
 get_header();
+
+$hban = get_theme_mod( 'myhero_hero_banner', ''); 
 ?>
 
 <main id="primary" class="site-main">
 
-	<!-- Above The Fold (ATF) Hero Section -->
-	<section class="hero-atf">
-		<div class="hero-content">
-			<h1 class="hero-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
-			<p class="hero-subtitle"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
-			
-			<div class="hero-cta-group">
-				<a href="#primary-cta" class="btn btn-primary">Get Started</a>
-				<a href="#secondary-cta" class="btn btn-secondary">Learn More</a>
-			</div>
+	<!-- Above The Fold (ATF) Hero banner -->
+	<div class="hero-banner">
+		<div class="myhero-banner" style="background: url( <?php echo esc_url( $hban ); ?> ); background-position: center;">
+				<div class="banner-title">
+					<?php the_title( '<span class="post-title-banner">', '</span>' ); ?>	
+				</div>
 		</div>
-	</section>
+	</div>
+
 
 	<!-- Lower Half (Open for content/widgets) -->
 	<section class="page-page-body">

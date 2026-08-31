@@ -21,7 +21,8 @@
             ); ?></a><span class="myhero-poweredby"> | Powered by <em>ClassicPress</em> </span></small>
         </div>
         <div class="upto">
-            <a class="back_to_top" title="<?php esc_attr_e('Top of page link', 'solo'); ?>"><sup>^</sup></a>
+            <a class="back_to_top" title="<?php esc_attr_e('Top of page link', 'myhero'); ?>">
+                <sup title="<?php esc_attr_e('Top of page link', 'myhero'); ?>">^</sup></a>
         </div>
     </div>
     
