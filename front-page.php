@@ -21,7 +21,7 @@ get_header();
 
 	<section class="hero-atf <?php echo esc_attr( 'has-media-' 
 		. $hero['bg_type'] ); ?>" <?php 
-		echo $hero_style; // ignore cpcs: WordPress.Security.EscapeOutput.OutputNotEscaped 
+		echo $hero_style; // cpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 		?>>
 	    
 		<?php if ( 'video' === $hero['bg_type'] && ! empty( $hero['bg_video'] ) ) : ?>
