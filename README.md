@@ -22,6 +22,4 @@ URI:          [https://github.com/tradesouthwest/myhero](https://github.com/trad
 ## Description: 
 Demo at https://themes.classicpress-themes.com/myhero
 
-##  Author: 
-Tradesouthwest
 
