@@ -17,11 +17,11 @@ License:      GPL 3 (see LICENSE)
 
 Text domain:  myhero
 
-URI:          [ttps://github.com/youraccount/theme](https://github.com/tradesouthwest/myhero)
+URI:          [https://github.com/tradesouthwest/myhero](https://github.com/tradesouthwest/myhero)
 
 ## Description: 
-Demo at https://yoursite.com/hello-theme
+Demo at https://themes.classicpress-themes.com/myhero
 
 ##  Author: 
-Hello Author
+Tradesouthwest
 
