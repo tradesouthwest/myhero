@@ -190,32 +190,33 @@ function myhero_breadcrumbs() {
 	$after       = '</span>';
 
 	echo '<nav class="breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'myhero' ) . '">';
-	echo '<a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( $home_title ) . '</a>' . $delimiter;
+	echo '<a href="' . esc_url( home_url( '/' ) ) . '">' 
+		. esc_html( $home_title ) . '</a>' . esc_attr( $delimiter );
 
 	if ( is_category() ) {
 		single_cat_title();
 	} elseif ( is_single() ) {
 		$category = get_the_category();
 		if ( ! empty( $category ) ) {
-			$last_category = end( $category );
-			echo get_category_parents( $last_category->term_id, true, $delimiter );
+			$last_category = end( esc_html( $category ) );
+			echo get_category_parents( $last_category->term_id, true, esc_attr( $delimiter ) );
 		}
-		echo $before . get_the_title() . $after;
+		echo esc_html( $before ) . get_the_title() . esc_html( $after );
 	} elseif ( is_page() && ! is_front_page() ) {
 		global $post;
 		if ( $post->post_parent ) {
 			$ancestors = array_reverse( get_post_ancestors( $post->ID ) );
 			foreach ( $ancestors as $ancestor ) {
-				echo '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>' . $delimiter;
+				echo '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a>' . esc_html( $delimiter );
 			}
 		}
-		echo $before . get_the_title() . $after;
+		echo esc_html( $before ) . get_the_title() . esc_html( $after );
 	} elseif ( is_archive() ) {
-		echo $before . get_the_archive_title() . $after;
+		echo esc_html( $before ) . get_the_archive_title() . esc_html( $after );
 	} elseif ( is_search() ) {
-		echo $before . sprintf( __( 'Search Results for: %s', 'myhero' ), get_search_query() ) . $after;
+		echo esc_html( $before ) . sprintf( esc_html_( 'Search Results for: %s', 'myhero' ), get_search_query() ) . esc_html( $after );
 	} elseif ( is_404() ) {
-		echo $before . __( 'Page Not Found', 'myhero' ) . $after;
+		echo esc_html( $before ) . esc_html_( 'Page Not Found', 'myhero' ) . esc_html( $after );
 	}
 
 	echo '</nav>';
@@ -259,9 +260,9 @@ function myhero_get_hero_mods() {
 function myhero_theme_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => __( 'Sidebar', 'solo' ),
+			'name'          => __( 'Sidebar', 'myhero' ),
 			'id'            => 'sidebar-page',
-			'description'   => __( 'Add widgets here to appear in your sidebar.', 'solo' ),
+			'description'   => __( 'Add widgets here to appear in your sidebar.', 'myhero' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

@@ -2,7 +2,7 @@
 /**
  * Front page
  *
- * @package Hello_Theme
+ * @package MyHero
  */
 
 get_header();
@@ -11,11 +11,11 @@ get_header();
 	$hero = myhero_get_hero_mods();
 	
 	// Inline style check
-$hero_style = '';
-if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
-	$hero_style = 'style="background-image: url(' . esc_url( $hero['bg_image'] ) . ');"';
-}
-?>
+	$hero_style = '';
+	if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {
+		$hero_style = 'style="background-image: url(' . esc_url( $hero['bg_image'] ) . ');"';
+	}
+	?>
 
 <main id="primary" class="site-main">
 
