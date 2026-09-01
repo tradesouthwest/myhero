@@ -11,7 +11,7 @@ Version:      1.0.0
 
 Author:       Tradesouthwest
 
-Tags:         translation-ready, featured-images, blog
+Tags:         featured-images, threaded-comments, full-width-template
 
 License:      GNU General Public License v3.0
 
