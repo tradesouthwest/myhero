@@ -94,7 +94,7 @@ function myhero_start_theme_setup() {
 	* Make theme available for translation.
 	* Translations can be added to the /languages/ directory.
 	*/
-    load_theme_textdomain( 'MYHERO', get_template_directory_uri() . '/languages' );
+    load_theme_textdomain( 'myhero', get_template_directory_uri() . '/languages' );
 
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus(
@@ -242,12 +242,6 @@ function myhero_breadcrumbs() {
  * @return Array
  * 
  */
-
-    /**
- * Retrieve all Hero section settings in a single array.
- *
- * @return array
- */
 function myhero_get_hero_mods() {
 
 	return array(
@@ -271,6 +265,7 @@ function myhero_get_hero_mods() {
  * @since 1.0
  */
 function myhero_theme_widgets_init() {
+
 	register_sidebar(
 		array(
 			'name'          => __( 'Sidebar', 'myhero' ),

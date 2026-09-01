@@ -3,11 +3,11 @@
 # MyHero
 ClassicPress theme with full Above the Fold hero. Uses image or video as hero.
 
-Requires PHP: 8.1
+Requires PHP: 7.4
 
-Requires CP:  2.0
+Requires CP:  1.4
 
-Version:      1.0.0
+Version:      1.0.1
 
 Author:       Tradesouthwest
 

@@ -8,8 +8,7 @@
 get_header();
 
 	// Fetch all hero options at once
-	$hero = myhero_get_hero_mods();
-	
+	$hero      = myhero_get_hero_mods();
 	// Inline style check
 	$hero_style = '';
 	if ( 'image' === $hero['bg_type'] && ! empty( $hero['bg_image'] ) ) {

@@ -145,7 +145,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	'hero_bg_image',
 	array(
-		'default'           => '',
+		'default'           => get_template_directory_uri() . '/images/default-hero-image.jpg',
 		'sanitize_callback' => 'esc_url_raw',
 	)
 );

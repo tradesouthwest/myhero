@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MyHero\n"
+"Report-Msgid-Bugs-To: https://tradesouthwest.com\n"
+"POT-Creation-Date: 2026-09-01 11:27-0700\n"
+"PO-Revision-Date: 2026-09-01 11:33-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:25
+msgid "Disscusion"
+msgstr ""
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:24 footer.php:25
+msgid "Top of page link"
+msgstr ""
+
+#: functions.php:102
+msgid "Primary Main Menu"
+msgstr ""
+
+#: functions.php:202
+msgid "Home"
+msgstr ""
+
+#: functions.php:206
+msgid "Breadcrumb"
+msgstr ""
+
+#: functions.php:231
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: functions.php:233
+msgid "Page Not Found"
+msgstr ""
+
+#: functions.php:250 inc/customizer.php:59
+msgid "Get Started"
+msgstr ""
+
+#: functions.php:252 inc/customizer.php:93
+msgid "Learn More"
+msgstr ""
+
+#: functions.php:271
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:273
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: header.php:30
+msgid "Skip to content"
+msgstr ""
+
+#: inc/customizer.php:13
+msgid "Hero Section"
+msgstr ""
+
+#: inc/customizer.php:15
+msgid "Customize the front page hero layout."
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "Hero Title"
+msgstr ""
+
+#: inc/customizer.php:49
+msgid "Hero Subtitle"
+msgstr ""
+
+#: inc/customizer.php:66
+msgid "Primary Button Text"
+msgstr ""
+
+#: inc/customizer.php:83
+msgid "Primary Button URL"
+msgstr ""
+
+#: inc/customizer.php:100
+msgid "Secondary Button Text"
+msgstr ""
+
+#: inc/customizer.php:117
+msgid "Secondary Button URL"
+msgstr ""
+
+#: inc/customizer.php:133
+msgid "Background Media Type"
+msgstr ""
+
+#: inc/customizer.php:137
+msgid "None (Color Only)"
+msgstr ""
+
+#: inc/customizer.php:138
+msgid "Image"
+msgstr ""
+
+#: inc/customizer.php:139
+msgid "Video (MP4)"
+msgstr ""
+
+#: inc/customizer.php:157
+msgid "Hero Background Image"
+msgstr ""
+
+#: inc/customizer.php:175
+msgid "Hero Background Video URL (.mp4)"
+msgstr ""
+
+#: inc/customizer.php:176
+msgid "Direct link to an MP4 video file."
+msgstr ""
+
+#: inc/customizer.php:195
+msgid "Page Banner Background Image"
+msgstr ""
+
+#: single.php:71
+msgid "By: "
+msgstr ""
+
+#: single.php:73
+msgid "Categorized as: "
+msgstr ""
+
+#: single.php:75
+msgid "Keys: "
+msgstr ""
+
+#: single.php:77
+msgid "Added on: "
+msgstr ""
