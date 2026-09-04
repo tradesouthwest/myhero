@@ -212,7 +212,7 @@ function myhero_breadcrumbs() {
 	} elseif ( is_single() ) {
 		$category = get_the_category();
 		if ( ! empty( $category ) ) {
-			$last_category = end( esc_html( $category ) );
+			$last_category = end( $category );
 			echo wp_kses_post( get_category_parents( $last_category->term_id, true, esc_html( $delimiter ) ) );
 		}
 		echo esc_html( $before ) . esc_html( get_the_title() ) . esc_html( $after );
